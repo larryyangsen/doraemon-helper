@@ -11,9 +11,9 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rm -rf dist && parcel build index.html --public-url /doraemon-helper",
-        "deploy": "gh-pages -d dist"
+        "deploy": "gh-pages -d dist --git $(which git)"
     },
-    "homepage": "https://larryyangsen.github.io/doraemon-helper/",
+    "homepage": "https://larryyangsen.github.io/doraemon-helper",
     "keywords": [],
     "author": "",
     "license": "ISC",

@@ -10,7 +10,7 @@ const itemMaps = {
     4: '金',
     5: '破',
     6: '化',
-    7: '琥珀',
+    7: '琥',
     8: '紅',
     9: '藍',
     10: '綠',
@@ -44,7 +44,7 @@ const App = () => {
             <div ref={bedRef} className="bed">
                 {bed.map((a, i) => (
                     <button onClick={() => onClick(i)} key={i}>
-                        {itemMaps[a]}
+                        <span>{itemMaps[a]}</span>
                     </button>
                 ))}
             </div>

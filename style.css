@@ -18,6 +18,15 @@ body {
     height: 2rem;
     border: 1px solid #aaa;
     text-align: center;
+    position: relative;
+}
+.bed button span {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-45deg);
 }
 .controls {
     margin-top: 4rem;
