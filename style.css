@@ -7,11 +7,9 @@ body {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 0.3rem;
+    grid-gap: 1px;
     transform: rotate(45deg);
     margin-top: 80px;
-    width: 80%;
-    height: 80%;
 }
 .bed button {
     width: 2rem;
