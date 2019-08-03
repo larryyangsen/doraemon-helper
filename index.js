@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
+import 'normalize.css';
 const itemMaps = {
     0: '土',
     1: '銅',
@@ -31,8 +32,9 @@ const App = () => {
         const newBed = bed.slice();
         newBed[index] = +e.target.value;
         setBed(newBed);
-        selectRef.current.blur();
+        selectRef.current.selectedIndex = '0';
         selectRef.current.style.opacity = 0;
+        selectRef.current.blur();
         bedRef.current.focus();
     };
     const reset = () => setBed(() => Array(49).fill(0));
@@ -48,7 +50,7 @@ const App = () => {
             </div>
             <div className="controls">
                 <button onClick={reset}>Reset</button>
-                <select onChange={onItemChange} ref={selectRef}>
+                <select onChange={e => onItemChange(e)} ref={selectRef}>
                     {Object.keys(itemMaps).map(key => (
                         <option key={key} value={key}>
                             {itemMaps[key]}

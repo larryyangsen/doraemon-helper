@@ -2,17 +2,23 @@
     "name": "doraemon-helper",
     "dependencies": {
         "gh-pages": "^2.1.0",
+        "normalize.css": "^8.0.1",
         "react": "^16.8.6",
         "react-dom": "^16.8.6"
     },
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "rm -rf dist && parcel build index.html --public-url /doraemon-helper",
+        "deploy": "gh-pages -d dist"
     },
     "homepage": "https://larryyangsen.github.io/doraemon-helper/",
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "description": ""
+    "description": "",
+    "devDependencies": {
+        "cssnano": "^4.1.10"
+    }
 }
