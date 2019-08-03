@@ -19,6 +19,9 @@ body {
     border: 1px solid #aaa;
     text-align: center;
 }
-select {
+.controls {
+    margin-top: 4rem;
+}
+.controls select {
     opacity: 0;
 }

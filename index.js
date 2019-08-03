@@ -35,6 +35,8 @@ const App = () => {
         selectRef.current.style.opacity = 0;
         bedRef.current.focus();
     };
+    const reset = () => setBed(() => Array(49).fill(0));
+
     return (
         <>
             <div ref={bedRef} className="bed">
@@ -44,13 +46,16 @@ const App = () => {
                     </button>
                 ))}
             </div>
-            <select onChange={onItemChange} ref={selectRef}>
-                {Object.keys(itemMaps).map(key => (
-                    <option key={key} value={key}>
-                        {itemMaps[key]}
-                    </option>
-                ))}
-            </select>
+            <div className="controls">
+                <button onClick={reset}>Reset</button>
+                <select onChange={onItemChange} ref={selectRef}>
+                    {Object.keys(itemMaps).map(key => (
+                        <option key={key} value={key}>
+                            {itemMaps[key]}
+                        </option>
+                    ))}
+                </select>
+            </div>
         </>
     );
 };
