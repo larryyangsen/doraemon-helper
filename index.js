@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useCallback, useState } from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 import 'normalize.css';
@@ -22,30 +22,34 @@ const itemMaps = {
 const App = () => {
     const selectRef = useRef();
     const bedRef = useRef();
-    const selectedIndex = useRef(0);
+    const selectedBedIndex = useRef(0);
     const [bed, setBed] = useState(() => Array(49).fill(0));
-    const onClick = (index, item) => {
+    const onBedClick = (index, item) => {
         selectRef.current.style.opacity = 1;
         selectRef.current.focus();
-        selectedIndex.current = index;
+        selectedBedIndex.current = index;
         selectRef.current.selectedIndex = item;
     };
-    const onItemChange = e => {
-        const index = selectedIndex.current;
-        const newBed = bed.slice();
-        newBed[index] = +e.target.value;
-        setBed(newBed);
-        selectRef.current.style.opacity = 0;
-        selectRef.current.blur();
-        bedRef.current.focus();
-    };
+    const onItemChange = useCallback(
+        e => {
+            const index = selectedBedIndex.current;
+            const newBed = bed.slice();
+            newBed[index] = +e.target.value;
+            setBed(newBed);
+            selectRef.current.style.opacity = 0;
+            selectRef.current.blur();
+            bedRef.current.focus();
+        },
+        [bed]
+    );
+
     const reset = () => setBed(() => Array(49).fill(0));
 
     return (
         <>
             <div ref={bedRef} className="bed">
                 {bed.map((item, i) => (
-                    <button onClick={() => onClick(i, item)} key={i}>
+                    <button onClick={() => onBedClick(i, item)} key={i}>
                         <span>{itemMaps[item]}</span>
                     </button>
                 ))}
